@@ -7,6 +7,9 @@
 #include <fstream>
 #include <vector>
 #include <exception>
+#include <map>
+#include <set>
+#include <iterator>
 
 int read_lines(const std::string& path, std::vector<std::string>& line_buffer) {
     std::ifstream file_stream(path);
@@ -21,11 +24,12 @@ int read_lines(const std::string& path, std::vector<std::string>& line_buffer) {
 }
 
 int main(void) {
-    std::cout << "WELCOME BOYO" << std::endl;
+    const char* path = "input.txt";
     std::vector<std::string> lines;
-    read_lines("input.txt", lines);
-    for (const auto& line : lines) {
-        std::cout << "Line: " << line << std::endl;
+    int status = read_lines(path, lines);
+    if (status != 0) {
+        printf("Could not read file. Check if it exists. File name: %s\n", path);
+        return 1;
     }
     return 0;
 }
