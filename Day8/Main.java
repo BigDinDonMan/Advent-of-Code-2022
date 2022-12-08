@@ -56,15 +56,6 @@ public class Main {
         return v1 || v2 || v3 || v4;
     }
 
-    static void printDebug(int[][] grid) {
-        for (int i = 0; i < grid.length; ++i) {
-            for (int j = 0; j < grid[0].length; ++j) {
-                System.out.printf("%d ", grid[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
     static int getVisibleTrees(int[][] grid) {
         int result = 0;
 
